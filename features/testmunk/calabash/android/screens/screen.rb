@@ -40,6 +40,16 @@ module Testmunk
         end
       end
 
+      def rotate_screen(dir)
+        if dir == :landscape
+          perform_action('set_activity_orientation', 'landscape')
+        elsif dir == :portrait
+          perform_action('set_activity_orientation', 'portrait')
+        else
+          super dir
+        end
+      end
+
       def touch_percentages(x, y)
         perform_action('click_on_screen', x, y)
       end
