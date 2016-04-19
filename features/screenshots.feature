@@ -49,14 +49,33 @@ Feature: Launch the app and take screenshots on various screens to verify how th
     When I rotate the device in portrait orientation
     Then I am on the Home Screen
 
-#  @rotate_swipe
-#  Scenario: Rotate device to landscape then back to portrait and verify no extra Carousel items
-#    Given I am on the Home Screen
-#    When I rotate the device in landscape orientation
-#      And I see the carousel
-#    When I rotate the device in portrait orientation
-#    And I swipe the carousel until the end
-#    Then I should not see an empty carousel item
+  @rotate_swipe
+  Scenario: Rotate device to landscape then back to portrait and verify no extra Carousel items
+    Given I am on the Home Screen
+    When I rotate the device in landscape orientation
+      And I see the carousel
+    When I rotate the device in portrait orientation
+    And I swipe the carousel right until the end
+    Then I should not see an empty carousel item
+
+  @swipe_to_end
+  Scenario: Swipe the carousel right until reaching the end
+    Given I am on the Home Screen
+    When I swipe the carousel right until the end
+    Then I should not see an empty carousel item
+      And I take a screenshot
+
+  @swipe_to_end_and_start
+  Scenario: Swipe the carousel right until reaching the end then swipe left to the beginning
+    Given I am on the Home Screen
+    When I swipe the carousel right until the end
+    Then I should not see an empty carousel item
+      And I take a screenshot
+    When I swipe the carousel left until the end
+    Then I should not see an empty carousel item
+      And I take a screenshot
+
+
 
 #  Scenario: Tap on Video and take a screenshot
 #    Given I am on the Home Screen

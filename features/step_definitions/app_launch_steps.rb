@@ -38,9 +38,15 @@ Then(/^I see all menu options$/) do
   @app.navmenu_screen.await
 end
 
-# And(/^I swipe the carousel until the end$/) do
-#   pending
-# end
+When(/^I swipe the carousel ([^"]*) until the end$/) do |direction|
+  @app.home_screen.swipe_until_end(direction.to_sym)
+end
+
+Then(/^I should not see an empty carousel item$/) do
+  if @app.home_screen.carousel_description_state == false
+    fail"Empty Carousel"
+  end
+end
 
 # Video feature has been removed from this demo
 # And(/^I tap on video play button$/) do
