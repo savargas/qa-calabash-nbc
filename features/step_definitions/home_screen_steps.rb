@@ -48,6 +48,11 @@ Then(/^I should not see an empty carousel item$/) do
   end
 end
 
+When(/^I tap on the search icon/) do
+  @app.home_screen.search_icon.await
+  @app.home_screen.search_icon.touch
+end
+
 # Video feature has been removed from this demo
 # And(/^I tap on video play button$/) do
 #   @app.home_screen.episode_play.await

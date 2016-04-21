@@ -1,6 +1,6 @@
 class NavmenuScreen < Testmunk::Android::Screen
 
-  view :left_menu, {id: 'left_drawer'}
+  view :left_menu, {id:'left_drawer'}
   view :nav_shows, {marked:'SHOWS'}
   view :nav_episodes, {marked:'EPISODES'}
   view :nav_schedule, {marked:'SCHEDULE'}
